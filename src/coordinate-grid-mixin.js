@@ -906,7 +906,7 @@ dc.coordinateGridMixin = function (_chart) {
     };
 
     _chart._disableMouseZoom = function () {
-        _chart.root().call(_nullZoom);
+//        _chart.root().call(_nullZoom);
     };
 
     function zoomHandler() {

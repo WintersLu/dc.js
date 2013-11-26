@@ -116,19 +116,17 @@ dc.barChart = function (parent, chartGroup) {
     }
 
     function calculateBarWidth() {
-        if (_barWidth === undefined) {
-            var numberOfBars = _chart.xUnitCount();
+        var numberOfBars = _chart.xUnitCount();
 
-            if (_chart.isOrdinal() && !_gap)
-                _barWidth = Math.floor(_chart.x().rangeBand());
-            else if (_gap)
-                _barWidth = Math.floor((_chart.xAxisLength() - (numberOfBars - 1) * _gap) / numberOfBars);
-            else
-                _barWidth = Math.floor(_chart.xAxisLength() / (1 + _chart.barPadding()) / numberOfBars);
+        if (_chart.isOrdinal() && !_gap)
+            _barWidth = Math.floor(_chart.x().rangeBand());
+        else if (_gap)
+            _barWidth = Math.floor((_chart.xAxisLength() - (numberOfBars - 1) * _gap) / numberOfBars);
+        else
+            _barWidth = Math.floor(_chart.xAxisLength() / (1 + _chart.barPadding()) / numberOfBars);
 
-            if (_barWidth == Infinity || isNaN(_barWidth) || _barWidth < MIN_BAR_WIDTH)
-                _barWidth = MIN_BAR_WIDTH;
-        }
+        if (_barWidth == Infinity || isNaN(_barWidth) || _barWidth < MIN_BAR_WIDTH)
+            _barWidth = MIN_BAR_WIDTH;
     }
 
     _chart.fadeDeselectedArea = function () {
